@@ -1,0 +1,109 @@
+Git Flow
+-----------
+MOre complicated than normal feture branch master branch Flow
+Two branches store history of the project - Master and Develop
+Features reside in their own branches 
+similarly hot fixes have their own branch.. Once Hot fixes are done, it is merged into develop and master  
+We create a Release brnach when we have a release. 
+From there on, any fixes go into Release directly and then they get merged into develop branch. Then release is made from release branch
+
+1. FIrst we create a repo with master brnach. Then we checkout from master to create a develop brnach
+2. From develop we create feature branches. We work on feature branch
+and we eventually check into develop branch
+3. At some point, when we need to release code, we checkout from develop to create a release branch
+Once release branch is created, we make changes on to release branch
+4. Finally code from release goes live, changes from release get checked into master and develop  
+
+Gitflow is basically a set of scripts extending git. We can also use git commands but these scripts make it easier to do git flow stuff
+
+
+Setting up a repo for git flow:
+
+create a dirctory flow
+
+    mkdir flow
+
+    cd flow
+
+    git init
+
+    git flow init
+
+This will ask few questions and u will be develop branch
+
+create a repo from web and get the clone url 
+
+git checkout master
+
+git remote add origin git@git.com:msmslmcs
+
+ git push -u origin
+
+ git checkout develop
+
+git push origin develop
+
+refresh browser to see
+
+Creating and Using Feature Branches 
+---------------------------------------
+1. Creating Feature branch
+Feature Branch: A feature branch is a place where a specific piece of work gets done
+
+Fbs are smaller compared to develop branch and are easy to Tracking
+Easy to merge with develop branch with less or no conflicts
+With out fbs, difficult to backoit changes and to expirement different diff solution approaches
+
+ Feature branch flow
+
+ O---O---O---O---O---O--    ---------> Master Branch
+      \            /
+       \---O--O---/         ---------> Feature Branch
+
+ex: git flow feature start feature-bim-migration
+ex: git flow feature finish feature-bim-migration
+
+help: git flow feature help
+
+For review:
+
+git flow feature track feature-bim-migration
+
+-----------------
+
+ Release:mostly lead creates release branch. FROM DEVELOP BRANCH
+ git flow release start release-sprint1
+
+This creates a branch release/release-sprint1 in local
+For others to use (to make it avaialble remotely)-
+ git flow release publish release-sprint1
+
+
+--------------------
+others have to do below
+git flow release track release-sprint1
+
+ 
+
+
+
+
+
+
+
+3. Sharing fb or Pushing the fb to central repo. 
+
+
+4. Tracking other fbs
+
+
+5. oThers
+
+
+
+
+
+
+
+
+
